@@ -12,3 +12,11 @@ function beep(freq = 520, duration = 200, vol = 100) {
   oscillator.start(context.currentTime);
   oscillator.stop(context.currentTime + duration * 0.001);
 }
+
+function play(sequence) {
+  let el = sequence.shift()
+  if(!el) return
+  if(!Array.isArray(el)) el = [el]
+  beep(el[0], el[1], el[2])
+  setTimeout(() => play(sequence), el[1] || 200)
+}
