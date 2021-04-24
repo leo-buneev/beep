@@ -20,6 +20,6 @@ play(sequence) {
   if(!el) return
   if(!Array.isArray(el)) el = [el]
   window.Beeper.beep(el[0] || 520, el[1] || 200, el[2] || 100)
-  setTimeout(() => window.Beeper.play(sequence), el[1] || 200)
+  setTimeout(() => window.Beeper.play(sequence), el[1] || 200 + 50)
 }
 }
