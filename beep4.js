@@ -19,7 +19,9 @@ play(sequence) {
   let el = sequence.shift()
   if(!el) return
   if(!Array.isArray(el)) el = [el]
-  window.Beeper.beep(el[0] || 520, el[1] || 200, el[2] || 100)
+  if(el[0] != null) {
+    window.Beeper.beep(el[0] || 520, el[1] || 200, el[2] || 100)
+  }  
   setTimeout(() => window.Beeper.play(sequence), (el[1] || 200) + 50)
 }
 }
